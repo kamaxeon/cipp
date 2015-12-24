@@ -13,13 +13,18 @@ check system localhost
 check filesystem rootfs with path /
     if space usage > 90% then alert
 
- check process sshd with pidfile /var/run/sshd.pid
+check process sshd with pidfile /var/run/sshd.pid
    start program  "/usr/sbin/service sshd start"
    stop program  "/usr/sbin/service sshd stop"
    if failed port 22 protocol ssh then restart
 
- check process cron with pidfile /var/run/cron.pid
+check process cron with pidfile /var/run/cron.pid
    group system
    start program = "/usr/sbin/service cron start"
    stop  program = "/usr/sbin/service cron stop"
+
+check process ntpd with pidfile /var/run/ntpd.pid
+   start program = "/usr/sbin/service ntpd start"
+   stop  program = "/usr/sbin/service ntpd stop"
+   if failed host 127.0.0.1 port 123 type udp then alert
 
