@@ -1,0 +1,38 @@
+---
+- name: ensure postfix packages are installed
+  apt: pkg={{ item }}
+  with_items:
+    - postfix
+    - mailutils
+    - libsasl2-2
+    - ca-certificates
+    - libsasl2-modules
+
+- name: ensure cacert.pem is present
+  copy:
+    src=etc/postfix/cacert.pem
+    dest=/etc/postfix/cacert.pem
+  notify:
+    - restart postfix service
+
+- name: ensure main.conf is configured
+  template:
+    src=etc/postfix/main.cf.j2
+    dest=/etc/postfix/main.cf
+    mode=0644
+    owner=root
+    group=root
+  notify:
+    - restart postfix service
+
+- name: ensure authentication file (sasl_passwd) is configured
+  template:
+    src=etc/postfix/sasl_passwd.j2
+    dest=/etc/postfix/sasl_passwd
+    mode=0640
+    owner=root
+    group=postfix
+  register: sasl_passwd
+  notify:
+    - postmap authentication file
+    - restart postfix service
