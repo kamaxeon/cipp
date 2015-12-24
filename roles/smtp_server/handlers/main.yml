@@ -5,3 +5,7 @@
 - name: postmap authentication file
   command: postmap /etc/postfix/sasl_passwd
   when: sasl_passwd|success
+
+- name: recreate aliases
+  command: postalias /etc/postfix/aliases
+  when: aliases|success
