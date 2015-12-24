@@ -4,3 +4,17 @@ smtp_server_relayhost_name : "smtp.gmail.com"
 smtp_server_relayhost_port : 587
 smtp_server_username_name : "test@gmail.com"
 smtp_server_username_passwd : "secret"
+
+# Proxy Server
+## Squid Service
+proxy_server_squid_dns_nameservers : "8.8.8.8 4.4.4.4"
+
+## Dansguardian Service
+proxy_server_dansguardian_language : "spanish"
+proxy_server_dansguardian_usesmtp : "on" # on or off
+proxy_server_dansguardian_notifyav : "on" # on or off 
+proxy_server_dansguardian_notifycontent : "on" # on or off 
+# Subject of the email sent when a virus is caught
+proxy_server_dansguardian_avsubject : "Alerta de virus en el proxy casero" 
+# Subject of the email sent when violation thresholds are exceeded
+proxy_server_dansguardian_contentsubject : "Alerta de navegacion en el proxy casero"
