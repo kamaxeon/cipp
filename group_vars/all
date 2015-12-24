@@ -1,5 +1,8 @@
-# Smtp Server
+# Common values
+common_alerts_group_members : "isra@miscorreos.org" # list of people separated by commas
+common_alerts_group_name : "alerts_group" 
 
+# Smtp Server
 smtp_server_relayhost_name : "smtp.gmail.com"
 smtp_server_relayhost_port : 587
 smtp_server_username_name : "test@gmail.com"
