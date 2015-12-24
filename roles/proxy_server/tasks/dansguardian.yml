@@ -1,0 +1,30 @@
+---
+- name: ensure dansguardian is installed
+  apt: pkg=dansguardian
+
+- name: ensure dansguardian.conf is configured
+  template:
+    src=etc/dansguardian/dansguardian.conf.j2
+    dest=/etc/dansguardian/dansguardian.conf
+    mode=0644
+    owner=root
+    group=root
+  notify:
+    - reload dansguardian service
+
+- name: ensure dansguardianf1.conf is configured
+  template:
+    src=etc/dansguardian/dansguardianf1.conf.j2
+    dest=/etc/dansguardian/dansguardianf1.conf
+    mode=0644
+    owner=root
+    group=root
+  notify:
+    - reload dansguardian service
+
+- name: ensure custom.html is present
+  copy:
+    src=etc/dansguardian/languages/custom.html
+    dest=/etc/dansguardian/languages/{{ proxy_server_dansguardian_language }}/custom.html
+  notify:
+    - reload dansguardian service

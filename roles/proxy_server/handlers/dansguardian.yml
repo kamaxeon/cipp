@@ -1,0 +1,3 @@
+---
+ - name: reload dansguardian service
+   service: name=dansguardian state=restarted enabled=yes
