@@ -1,0 +1,26 @@
+---
+- name: ensure monit is installed
+  apt: pkg=monit
+
+
+- name: ensure monitrc is configured
+  template:
+    src=etc/monit/monitrc.j2
+    dest=/etc/monit/monitrc
+    mode=0600
+    owner=root
+    group=root
+  notify:
+    - reload monit service
+
+- name: ensure check file are installed
+  copy:
+    src=etc/monit/conf.d/{{ item }}
+    dest=/etc/monit/conf.d/{{ item }}
+  with_items:
+    - proxy-server
+    - smtp-server
+    - system
+  notify:
+    - reload monit service
+

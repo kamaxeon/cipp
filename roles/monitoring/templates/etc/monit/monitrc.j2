@@ -1,0 +1,24 @@
+#This file is autogenerate by ansible
+# Do not edit, changes will be overwritten
+
+set daemon 120            
+set logfile /var/log/monit.log
+set idfile /var/lib/monit/id
+set statefile /var/lib/monit/state
+set eventqueue
+     basedir /var/lib/monit/events 
+     slots 100                    
+set mailserver localhost
+set mail-format {
+     from: {{ smtp_server_username_name }}
+  subject: monit alert --  $EVENT $SERVICE
+  message: $EVENT Service $SERVICE
+                Date:        $DATE
+                Action:      $ACTION
+                Host:        $HOST
+                Description: $DESCRIPTION
+
+           Su proxy casero,
+}
+set alert {{ common_alerts_group_name }}@localhost not on { instance, action }
+  include /etc/monit/conf.d/*

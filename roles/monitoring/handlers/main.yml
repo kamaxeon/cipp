@@ -1,0 +1,3 @@
+---
+- name: reload monit service
+  service: name=monit state=restarted enabled=yes
