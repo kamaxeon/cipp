@@ -1,0 +1,11 @@
+---
+- name: ensure sarg is installed
+  apt: pkg=sarg
+
+- name: ensure sarg.conf is configured
+  template:
+    src=etc/sarg/sarg.conf.j2
+    dest=/etc/sarg/sarg.conf
+    mode=0644
+    owner=root
+    group=root

@@ -1,6 +1,7 @@
 # Common values
 common_alerts_group_members : "isra@miscorreos.org" # list of people separated by commas
 common_alerts_group_name : "alerts_group" 
+common_reports_output_dir : "/var/www/html/squid-reports"
 
 # Smtp Server
 smtp_server_relayhost_name : "smtp.gmail.com"
@@ -21,3 +22,6 @@ proxy_server_dansguardian_notifycontent : "on" # on or off
 proxy_server_dansguardian_avsubject : "Alerta de virus en el proxy casero" 
 # Subject of the email sent when violation thresholds are exceeded
 proxy_server_dansguardian_contentsubject : "Alerta de navegacion en el proxy casero"
+
+## Sarg
+proxy_server_sarg_stats_title : "Estadisticas de navegacion"
