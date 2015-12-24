@@ -1,0 +1,3 @@
+---
+ - name: reload squid3 service
+   service: name=squid3 state=restarted enabled=yes

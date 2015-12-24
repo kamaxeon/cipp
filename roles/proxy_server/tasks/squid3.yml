@@ -1,0 +1,13 @@
+---
+- name: ensure squid3 is installed
+  apt: pkg=squid3
+
+- name: ensure squid3.conf is configured
+  template:
+    src=etc/squid3/squid.conf.j2
+    dest=/etc/squid3/squid.conf
+    mode=0644
+    owner=root
+    group=root
+  notify:
+    - reload squid3 service
