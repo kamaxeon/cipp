@@ -2,8 +2,8 @@
 - name: ensure clamav-daemon is installed
   apt: pkg=clamav-daemon
 
-- name: ensure dansguardian user is in clamav group
-  user: name=dansguardian groups=clamav append=yes
+- name: ensure clamav user is in dansguardian group
+  user: name=clamav groups=dansguardian append=yes
 
 - name: ensure clamd.conf is configured
   copy:
