@@ -1,0 +1,14 @@
+# This file is autogenerate by ansible
+# Do not edit, changes will be overwritten
+
+server {
+        listen 80 default_server;
+        root {{ common_reports_output_dir }};
+        index index.html index.htm;
+        server_name localhost;
+        location / {
+                try_files $uri $uri/ =404;
+                auth_basic "Restricted Content";
+                auth_basic_user_file {{ proxy_server_nginx_httpwd_filename }};
+        }
+}
