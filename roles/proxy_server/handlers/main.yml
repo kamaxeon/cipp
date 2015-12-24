@@ -1,3 +1,5 @@
 ---
  - include: squid3.yml
  - include: dansguardian.yml
+ - include: clamav-daemon.yml
+ - include: nginx.yml
