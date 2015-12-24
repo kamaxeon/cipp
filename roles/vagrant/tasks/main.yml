@@ -1,0 +1,5 @@
+---
+- name: ensure environment is configured
+  copy:
+    src=etc/environment
+    dest=/etc/environment
