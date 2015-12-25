@@ -21,6 +21,7 @@
     - proxy-server
     - smtp-server
     - system
+    - ddclient
   notify:
     - reload monit service
 
