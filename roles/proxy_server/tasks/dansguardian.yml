@@ -28,3 +28,10 @@
     dest=/etc/dansguardian/languages/{{ proxy_server_dansguardian_language }}/custom.html
   notify:
     - reload dansguardian service
+
+- name: ensure exceptionregexprllist is configured
+  copy:
+    src=etc/dansguardian/lists/exceptionregexprllist
+    dest=/etc/dansguardian/lists/exceptionregexprllist
+  notify:
+    - reload dansguardian service
