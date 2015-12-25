@@ -1,0 +1,6 @@
+#This file is autogenerate by ansible
+# Do not edit, changes will be overwritten
+
+check process ddclient with pidfile /var/run/ddclient.pid
+  start program = "/usr/sbin/service ddclient start"
+  stop  program = "/usr/sbin/service ddclient stop"
