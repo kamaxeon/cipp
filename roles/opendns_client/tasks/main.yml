@@ -1,0 +1,17 @@
+---
+- name: ensure ddclient is installed
+  apt: pkg=ddclient
+
+- name: ensure ddclient is configured
+  copy:
+    src=etc/default/ddclient
+    dest=/etc/default/ddclient
+  notify:
+    - reload ddclient service
+
+- name: ensure ddclient.conf is configured
+  template:
+    src=etc/ddclient.conf.j2
+    dest=/etc/ddclient.conf
+  notify:
+    - reload ddclient service

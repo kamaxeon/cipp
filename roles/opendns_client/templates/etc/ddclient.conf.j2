@@ -1,0 +1,15 @@
+# This file is autogenerate by ansible
+# Do not edit, changes will be overwritten
+
+daemon=300
+syslog=yes
+mail={{ common_alerts_group_name }}
+mail-failure={{ common_alerts_group_name }}
+pid=/var/run/ddclient.pid
+use=web, web=myip.dnsomatic.com
+ssl=yes
+server=updates.opendns.com
+protocol=dyndns2
+login={{ opendns_client_username_name }}
+password={{ opendns_client_username_password }}
+{{ opendns_client_network_label }}

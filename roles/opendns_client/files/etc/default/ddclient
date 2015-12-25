@@ -1,0 +1,6 @@
+# This file is autogenerate by ansible
+# Do not edit, changes will be overwritten
+
+run_ipup="false"
+run_daemon="true"
+daemon_interval="300"
