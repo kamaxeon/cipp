@@ -4,5 +4,5 @@
 
 - name: ensure ntp is installed
   apt: pkg=ntp
-  notify: restart ntp
+  notify: reload ntp service
 
