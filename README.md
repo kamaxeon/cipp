@@ -53,6 +53,9 @@ Para que sea todo `automático` es necesario disponer de un router que mande las
 
 Sino se dispone se podría hacer de forma manual configurando el proxy en los equipos de usen los menores, pero ya no sería tan mágico.
 
+## Nginx
+
+  Para poder ver las estadísticas es necesario disponer de un servidor web, se ha elegido nginx por ser muy ligero y fácil de configurar, aunque no se descarta cambiarlo a [lighttpd](https://www.lighttpd.net/) en un futuro
 
 Implementación
 --------------
@@ -62,3 +65,19 @@ Aquí viene la parte más friki (la que más me gusta), para desplegar todo en n
 Para el desarrollo del mismo se apoya sobre [vagrant](http://www.vagrantup.com) para que sea lo más rápido y ágil posible.
 
 Como herramienta para los test se usará server-spec, aunque me gustaría buscar una alternativa en python que es el lenguaje en el que está escrito ansible.
+
+¿ Cómo probarlo ?
+-----------------
+
+Para probarlo solo debes clonar el proyecto y ejecutar vagrant up, con esto ya deberías tener la máquina virtual de pruebas funcionando, ahora sólo te queda cambiar tu navegador y poner el proxy a 127.0.0.1:8080
+
+Instalación
+-----------
+
+Todavía está en desarrollo y no se ha preparado la instalación oficial, pero son playbooks de ansible con lo cual es muy muy fácil.
+
+Autores
+-------
+
+* Antonio Masdías (amasdias@gmail.com)
+* Israel Santana (isra@miscorreos.org)
