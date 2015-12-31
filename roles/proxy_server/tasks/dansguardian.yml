@@ -29,9 +29,9 @@
   notify:
     - reload dansguardian service
 
-- name: ensure exceptionregexprllist is configured
+- name: ensure exceptionregexpurllist is configured
   copy:
-    src=etc/dansguardian/lists/exceptionregexprllist
-    dest=/etc/dansguardian/lists/exceptionregexprllist
+    src=etc/dansguardian/lists/exceptionregexpurllist
+    dest=/etc/dansguardian/lists/exceptionregexpurllist
   notify:
     - reload dansguardian service
