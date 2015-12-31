@@ -18,10 +18,9 @@ check process sshd with pidfile /var/run/sshd.pid
    stop program  "/usr/sbin/service sshd stop"
    if failed port 22 protocol ssh then restart
 
-check process cron with pidfile /var/run/cron.pid
-   group system
-   start program = "/usr/sbin/service cron start"
-   stop  program = "/usr/sbin/service cron stop"
+#check process cron with pidfile /var/run/cron.pid
+#   start program = "/usr/sbin/service cron start"
+#   stop  program = "/usr/sbin/service cron stop"
 
 check process ntpd with pidfile /var/run/ntpd.pid
    start program = "/usr/sbin/service ntpd start"

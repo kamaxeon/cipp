@@ -1,10 +1,10 @@
 #This file is autogenerate by ansible
 # Do not edit, changes will be overwritten
 
-check process clamd with pidfile /var/run/clamav/daemon-clamd.pid
-  start program = "/usr/sbin/service clamav-daemon start"
-  stop program  = "/usr/sbin/service clamav-daemon stop"
-  if 5 restarts within 5 cycles then timeout
+#check process clamd with pidfile /var/run/clamav/clamd.ctl
+#  start program = "/usr/sbin/service clamav-daemon start"
+#  stop program  = "/usr/sbin/service clamav-daemon stop"
+#  if 5 restarts within 5 cycles then timeout
 
 check process dansguardian with pidfile /var/run/dansguardian.pid
   start program = "/usr/sbin/service dansguardian start"
