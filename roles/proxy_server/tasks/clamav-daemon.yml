@@ -2,8 +2,12 @@
 - name: ensure clamav-daemon is installed
   apt: pkg=clamav-daemon
 
-- name: ensure clamav user is in dansguardian group
-  user: name=clamav groups=dansguardian append=yes
+- name: ensure dansguardian is the owner of clamav.log
+  file:
+    path=/var/log/clamav/clamav.log
+    owner=dansguardian
+  notify:
+    - reload clamav-daemon service
 
 - name: ensure clamd.conf is configured
   copy:
@@ -11,3 +15,14 @@
     dest=/etc/clamav/clamd.conf
   notify:
     - reload clamav-daemon service
+
+- name: ensure contrab job to update clamav is installed
+  copy:
+    src=etc/cron.daily/clamav-freschlam
+    dest=/etc/cron.daily/clamav-freschlam
+    owner=root
+    group=root
+    mode=755
+
+- name: restart clamav-daemon
+  service: name=clamav-daemon state=restarted
