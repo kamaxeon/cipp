@@ -1,17 +1,18 @@
 # Common values
-common_alerts_group_members : "isra@miscorreos.org" # list of people separated by commas
+common_alerts_group_members : "father@gmail.com" # list of people separated by commas
 common_alerts_group_name : "alerts_group" 
-common_reports_output_dir : "/var/www/html/squid-reports"
+common_reports_output_dir : "/usr/share/nginx/squid-reports"
 
 # Smtp Server
 smtp_server_relayhost_name : "smtp.gmail.com"
 smtp_server_relayhost_port : 587
-smtp_server_username_name : "test@gmail.com"
-smtp_server_username_passwd : "secret"
+smtp_server_username_name : "user@gmail.com"
+smtp_server_username_passwd : "pass"
 
 # Proxy Server
 ## Squid Service
-proxy_server_squid_dns_nameservers : "8.8.8.8 4.4.4.4"
+#proxy_server_squid_dns_nameservers : "8.8.8.8 4.4.4.4" # google dns
+proxy_server_squid_dns_nameservers : "208.67.222.222  208.67.220.220" # OpenDNS dns
 
 ## Dansguardian Service
 proxy_server_dansguardian_language : "spanish"
@@ -25,3 +26,14 @@ proxy_server_dansguardian_contentsubject : "Alerta de navegacion en el proxy cas
 
 ## Sarg
 proxy_server_sarg_stats_title : "Estadisticas de navegacion"
+
+## Nginx
+proxy_server_nginx_httpwd_filename : "/etc/nginx/.httpasswd"
+proxy_server_nginx_httpwd_username : "admin"
+proxy_server_nginx_httpwd_password : "password"
+
+
+# OpenDNS Client
+opendns_client_username_name : "opendns@gmail.com"
+opendns_client_username_password : "supersecret"
+opendns_client_network_label : "myhome"
