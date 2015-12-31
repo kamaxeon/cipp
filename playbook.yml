@@ -1,0 +1,13 @@
+---
+- hosts: all
+  sudo: true
+  pre_tasks:
+    - name: update apt cache
+      apt:  update_cache=yes
+  roles:
+    - vagrant
+    - common
+    - opendns_client
+    - smtp_server
+    - proxy_server
+    - monitoring
