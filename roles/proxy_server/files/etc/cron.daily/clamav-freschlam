@@ -1,0 +1,6 @@
+# This file is autogenerate by ansible
+# Do not edit, changes will be overwritten
+
+#!/bin/sh
+
+freshclam --quiet --no-warnings
