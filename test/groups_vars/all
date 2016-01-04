@@ -1,13 +1,13 @@
 # Common values
-common_alerts_group_members : "father@gmail.com" # list of people separated by commas
+common_alerts_group_members : "somebody@test.com" # list of people separated by commas
 common_alerts_group_name : "alerts_group" 
 common_reports_output_dir : "/usr/share/nginx/squid-reports"
 
 # Smtp Server
-smtp_server_relayhost_name : "smtp.gmail.com"
-smtp_server_relayhost_port : 587
-smtp_server_username_name : "user@gmail.com"
-smtp_server_username_passwd : "secret2"
+smtp_server_relayhost_name : "smtp.test.com"
+smtp_server_relayhost_port : 25
+smtp_server_username_name : "user@test.com"
+smtp_server_username_passwd : "secret"
 
 # Proxy Server
 ## Squid Service
