@@ -3,3 +3,4 @@ tmp_files/*
 .vagrant
 .kitchen/
 .kitchen.local.yml
+*.swp
