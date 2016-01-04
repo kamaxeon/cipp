@@ -1,3 +1,3 @@
 ---
-- name: reload ddclient service
+- name: restart ddclient service
   service: name=ddclient state=restarted enabled=yes

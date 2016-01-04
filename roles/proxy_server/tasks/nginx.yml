@@ -7,7 +7,7 @@
      path=/etc/nginx/sites-enabled/default
      state=absent
   notify:
-    - reload nginx service
+    - restart nginx service
 
 
 - name: ensure python-passlib is installed
@@ -22,21 +22,21 @@
     group=www-data 
     mode=0640
   notify:
-    - reload nginx service
+    - restart nginx service
 
 
 - name: ensure root directory of sarg virtual host is created
   file:
     path={{ common_reports_output_dir }} state=directory mode=0755
   notify:
-    - reload nginx service
+    - restart nginx service
 
 - name: ensure sarg virtual host file is created
   template:
     src=etc/nginx/sites-available/sarg.conf.j2
     dest=/etc/nginx/sites-available/sarg.conf
   notify:
-    - reload nginx service
+    - restart nginx service
 
 - name: ensure sarg virtual host is enabled
   file:
@@ -44,4 +44,4 @@
     dest=/etc/nginx/sites-enabled/sarg.conf
     state=link
   notify:
-    - reload nginx service
+    - restart nginx service

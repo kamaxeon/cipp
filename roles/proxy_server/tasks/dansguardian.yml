@@ -10,7 +10,7 @@
     owner=root
     group=root
   notify:
-    - reload dansguardian service
+    - restart dansguardian service
 
 - name: ensure dansguardianf1.conf is configured
   template:
@@ -20,18 +20,18 @@
     owner=root
     group=root
   notify:
-    - reload dansguardian service
+    - restart dansguardian service
 
 - name: ensure custom.html is present
   copy:
     src=etc/dansguardian/languages/custom.html
     dest=/etc/dansguardian/languages/{{ proxy_server_dansguardian_language }}/custom.html
   notify:
-    - reload dansguardian service
+    - restart dansguardian service
 
 - name: ensure exceptionregexpurllist is configured
   copy:
     src=etc/dansguardian/lists/exceptionregexpurllist
     dest=/etc/dansguardian/lists/exceptionregexpurllist
   notify:
-    - reload dansguardian service
+    - restart dansguardian service
