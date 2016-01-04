@@ -96,4 +96,14 @@ context 'Smtp Server Role' do
       it { should contain '[smtp.test.com]:25  user@test.com:secret' }
     end
   end
+  context 'Ansible Signature' do
+    files = %w(
+      main.cf
+      aliases
+      sasl_passwd
+    )
+    files.each do |file|
+      check_ansible_header "#{dir}/#{file}"
+    end
+  end
 end
