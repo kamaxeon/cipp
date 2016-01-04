@@ -15,7 +15,7 @@
 
 - name: ensure htpasswd is configured
   htpasswd: 
-    path={{ web_server__httpwd_filename }}
+    path={{ web_server_httpwd_filename }}
     name={{ web_server_httpwd_username }}
     password={{ web_server_httpwd_password }}
     owner=root 
