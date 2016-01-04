@@ -10,4 +10,7 @@ context 'Vagrant Role' do
      it { should contain 'LC_ALL="en_US.utf8"' }
     end
   end
+  context 'Ansible headers' do
+    check_ansible_header '/etc/environment'
+  end
 end
