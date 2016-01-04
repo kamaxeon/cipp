@@ -9,5 +9,6 @@
     - common
     - opendns_client
     - smtp_server
+    - web_server
     - proxy_server
     - monitoring
