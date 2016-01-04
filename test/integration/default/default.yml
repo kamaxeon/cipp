@@ -1,3 +1,4 @@
 ---
 - hosts: test-kitchen
   roles:
+    - common
