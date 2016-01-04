@@ -7,14 +7,14 @@
     path=/var/log/clamav/clamav.log
     owner=dansguardian
   notify:
-    - reload clamav-daemon service
+    - restart clamav-daemon service
 
 - name: ensure clamd.conf is configured
   copy:
     src=etc/clamav/clamd.conf
     dest=/etc/clamav/clamd.conf
   notify:
-    - reload clamav-daemon service
+    - restart clamav-daemon service
 
 - name: ensure contrab job to update clamav is installed
   copy:

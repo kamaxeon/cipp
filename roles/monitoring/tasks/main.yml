@@ -11,7 +11,7 @@
     owner=root
     group=root
   notify:
-    - reload monit service
+    - restart monit service
 
 - name: ensure check file are installed
   copy:
@@ -23,5 +23,5 @@
     - system
     - ddclient
   notify:
-    - reload monit service
+    - restart monit service
 
