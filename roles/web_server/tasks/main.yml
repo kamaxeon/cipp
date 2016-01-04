@@ -15,9 +15,9 @@
 
 - name: ensure htpasswd is configured
   htpasswd: 
-    path={{ proxy_server_nginx_httpwd_filename }}
-    name={{ proxy_server_nginx_httpwd_username }}
-    password={{ proxy_server_nginx_httpwd_password }}
+    path={{ web_server__httpwd_filename }}
+    name={{ web_server_httpwd_username }}
+    password={{ web_server_httpwd_password }}
     owner=root 
     group=www-data 
     mode=0640
