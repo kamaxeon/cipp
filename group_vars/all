@@ -27,10 +27,10 @@ proxy_server_dansguardian_contentsubject : "Alerta de navegacion en el proxy cas
 ## Sarg
 proxy_server_sarg_stats_title : "Estadisticas de navegacion"
 
-## Nginx
-proxy_server_nginx_httpwd_filename : "/etc/nginx/.httpasswd"
-proxy_server_nginx_httpwd_username : "admin"
-proxy_server_nginx_httpwd_password : "password"
+# Httpd Server
+httpd_server_httpwd_filename : "/etc/nginx/.httpasswd"
+httpd_server_httpwd_username : "admin"
+httpd_server_httpwd_password : "password"
 
 
 # OpenDNS Client
