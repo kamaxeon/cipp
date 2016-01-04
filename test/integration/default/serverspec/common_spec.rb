@@ -1,10 +1,16 @@
 require 'spec_helper'
 
 context 'Common Role' do
+
+  context 'Packages' do
+    describe package 'ntp' do
+      it { should be_installed }
+    end
+  end
   context 'Services' do
     describe service 'ntp' do
-     it { should be_enabled }
-     it { should be_running }
+      it { should be_enabled }
+      it { should be_running }
     end
   end
 

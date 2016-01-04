@@ -9,7 +9,7 @@ provisioner:
   hosts: test-kitchen
   ansible_verbose: false
   ansible_verbosity: 2
-  group_vars_path: 'test/integration/default/groups_vars'
+  group_vars_path: 'test/groups_vars'
 
 platforms:
   - name: ubuntu-14.04
