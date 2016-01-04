@@ -34,6 +34,6 @@ proxy_server_nginx_httpwd_password : "password"
 
 
 # OpenDNS Client
-opendns_client_username_name : "opendns@gmail.com"
+opendns_client_username_name : "user@test.com"
 opendns_client_username_password : "secret"
 opendns_client_network_label : "myhome"

@@ -4,3 +4,4 @@
     - common
     - vagrant
     - smtp_server
+    - opendns_client
