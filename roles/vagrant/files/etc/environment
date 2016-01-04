@@ -1,2 +1,4 @@
+# This file is autogenerate by ansible
+# Do not edit, changes will be overwritten
 PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
 LC_ALL="en_US.utf8"
