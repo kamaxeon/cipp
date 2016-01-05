@@ -1,8 +1,12 @@
 ---
 - hosts: test-kitchen
+  pre_tasks:
+   - name: update apt cache
+     apt:  update_cache=yes
   roles:
     - common
     - vagrant
     - smtp_server
     - opendns_client
     - monitoring
+    - web_server
