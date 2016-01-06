@@ -4,3 +4,4 @@ tmp_files/*
 .kitchen/
 .kitchen.local.yml
 *.swp
+packer_cache
