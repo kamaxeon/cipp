@@ -5,3 +5,6 @@ tmp_files/*
 .kitchen.local.yml
 *.swp
 packer_cache
+packer/build/*.box
+packer/build/*.ovf
+packer/build/*.vmdk
