@@ -1,0 +1,79 @@
+{
+    "variables": {
+        "ssh_name": "vagrant",
+        "ssh_pass": "vagrant",
+        "hostname": "cipp"
+    },
+
+    "builders": [{
+        "type": "virtualbox-iso",
+        "guest_os_type": "Ubuntu_64",
+
+        "vboxmanage": [
+            ["modifyvm", "{{.Name}}", "--vram", "32"]
+        ],
+
+        "disk_size" : 10000,
+        "boot_wait" : "5s",
+        "iso_url": "http://releases.ubuntu.com/trusty/ubuntu-14.04.3-server-amd64.iso",
+        "iso_checksum": "9e5fecc94b3925bededed0fdca1bd417",
+        "iso_checksum_type": "md5",
+
+        "http_directory" : "packer/http",
+        "http_port_min" : 9001,
+        "http_port_max" : 9001,
+
+        "ssh_username": "{{user `ssh_name`}}",
+        "ssh_password": "{{user `ssh_pass`}}",
+        "ssh_wait_timeout": "20m",
+        "output_directory" : "packer/build/virtualbox",
+
+        "shutdown_command": "echo {{user `ssh_pass`}} | sudo -S shutdown -P now",
+        "boot_command" : [
+            "<esc><esc><enter><wait>",
+            "/install/vmlinuz noapic ",
+            "preseed/url=http://{{ .HTTPIP }}:{{ .HTTPPort }}/preseed.cfg ",
+            "debian-installer=en_US auto locale=en_US kbd-chooser/method=us ",
+            "hostname={{user `hostname`}} ",
+            "fb=false debconf/frontend=noninteractive ",
+            "keyboard-configuration/modelcode=SKIP keyboard-configuration/layout=USA ",
+            "keyboard-configuration/variant=USA console-setup/ask_detect=false ",
+            "initrd=/install/initrd.gz -- <enter>"
+        ]
+    }],
+
+    "provisioners": [{
+      "type": "shell",
+      "execute_command": "echo {{user `ssh_pass`}} | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "scripts": [
+        "packer/scripts/vagrant.sh",
+        "packer/scripts/ansible.sh"
+      ]
+    },
+    {
+      "type": "ansible-local",
+      "playbook_file": "playbook.yml",
+      "group_vars": "group_vars",
+      "role_paths": [
+        "roles/common",
+        "roles/monitoring",
+        "roles/opendns_client",
+        "roles/proxy_server",
+        "roles/smtp_server",
+        "roles/vagrant",
+        "roles/web_server"
+        ]
+    },
+    {
+      "type": "shell",
+      "execute_command": "echo {{user `ssh_pass`}} | {{.Vars}} sudo -S -E bash '{{.Path}}'",
+      "script": "packer/scripts/compact.sh"
+    }],
+
+   "post-processors": [
+    {
+      "output": "packer/build/vagrant/VirtualBox-cipp.box",
+      "type": "vagrant"
+    }
+  ]
+}
