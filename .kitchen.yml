@@ -10,6 +10,7 @@ provisioner:
   ansible_verbose: false
   ansible_verbosity: 2
   group_vars_path: 'test/groups_vars'
+  roles_path: 'ansible/roles/'
 
 platforms:
   - name: ubuntu-14.04
