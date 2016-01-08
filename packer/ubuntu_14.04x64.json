@@ -52,16 +52,16 @@
     },
     {
       "type": "ansible-local",
-      "playbook_file": "playbook.yml",
-      "group_vars": "group_vars",
+      "playbook_file": "ansible/playbook.yml",
+      "group_vars": "ansible/group_vars",
       "role_paths": [
-        "roles/common",
-        "roles/monitoring",
-        "roles/opendns_client",
-        "roles/proxy_server",
-        "roles/smtp_server",
-        "roles/vagrant",
-        "roles/web_server"
+        "ansible/roles/common",
+        "ansible/roles/monitoring",
+        "ansible/roles/opendns_client",
+        "ansible/roles/proxy_server",
+        "ansible/roles/smtp_server",
+        "ansible/roles/vagrant",
+        "ansible/roles/web_server"
         ]
     },
     {
