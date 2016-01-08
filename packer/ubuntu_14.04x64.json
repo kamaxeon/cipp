@@ -26,7 +26,7 @@
         "ssh_username": "{{user `ssh_name`}}",
         "ssh_password": "{{user `ssh_pass`}}",
         "ssh_wait_timeout": "20m",
-        "output_directory" : "packer/build/virtualbox",
+        "output_directory" : "packer/build",
 
         "shutdown_command": "echo {{user `ssh_pass`}} | sudo -S shutdown -P now",
         "boot_command" : [
@@ -72,8 +72,9 @@
 
    "post-processors": [
     {
-      "output": "packer/build/vagrant/VirtualBox-cipp.box",
-      "type": "vagrant"
+      "output": "packer/build/VirtualBox-cipp.box",
+      "type": "vagrant",
+      "keep_input_artifact": true
     }
   ]
 }
