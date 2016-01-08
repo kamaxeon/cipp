@@ -8,3 +8,4 @@ packer_cache
 packer/build/*.box
 packer/build/*.ovf
 packer/build/*.vmdk
+packer/build/*.vdi
