@@ -13,6 +13,11 @@
   notify:
     - restart monit service
 
+- name: ensure check_cron file is installed
+  copy:
+    src=etc/cron.d/check_cron
+    dest=/etc/cron.d/check_cron
+
 - name: ensure check file are installed
   copy:
     src=etc/monit/conf.d/{{ item }}
