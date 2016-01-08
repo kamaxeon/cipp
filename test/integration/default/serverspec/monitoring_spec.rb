@@ -6,7 +6,6 @@ files = %w(
   /etc/monit/conf.d/smtp-server
   /etc/monit/conf.d/system
   /etc/monit/conf.d/ddclient
-  /etc/cron.d/check_cron
 )
 context 'Monitoring Role' do
 
@@ -52,7 +51,6 @@ context 'Monitoring Role' do
       /etc/monit/conf.d/smtp-server
       /etc/monit/conf.d/system
       /etc/monit/conf.d/ddclient
-      /etc/cron.d/check_cron
     )
     conf_d_files.each do |file|
       describe file "#{file}" do
@@ -81,9 +79,6 @@ context 'Monitoring Role' do
     describe file '/etc/monit/conf.d/system' do
       it { should contain 'check process ntpd with pidfile /var/run/ntpd.pid' }
       it { should contain 'check process sshd with pidfile /var/run/sshd.pid' }
-    end
-    describe file '/etc/cron.d/check_cron' do
-      it { should contain '*/5 * * * *       root    touch /tmp/check_cron' }
     end
   end
   context 'Ansible Signature' do
