@@ -1,0 +1,13 @@
+---
+- hosts: localhost
+  sudo: true
+  pre_tasks:
+    - name: update apt cache
+      apt:  update_cache=yes
+  roles:
+    - common
+    - opendns_client
+    - smtp_server
+    - web_server
+    - proxy_server
+    - monitoring
