@@ -81,5 +81,4 @@ Todavía está en desarrollo y no se ha preparado la instalación oficial, pero 
 Autores
 -------
 
-* Antonio Masdías (amasdias@gmail.com)
 * Israel Santana (isra@miscorreos.org)
