@@ -9,3 +9,12 @@
     mode=0644
     owner=root
     group=root
+
+- name: ensure contrab job to update sarg reports is installed
+  copy:
+    src=etc/cron.hourly/sarg-update
+    dest=/etc/cron.hourly/sarg-update
+    owner=root
+    group=root
+    mode=755
+
