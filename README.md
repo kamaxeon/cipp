@@ -100,7 +100,7 @@ Nos descargamos el proyecto
 $ git clone https://github.com/kamaxeon/cipp.git
 ```
 
-Ahora debemos editar el fichero *cipp/ansible/group_vars/all* y adaptando a tu parámetros. Una vez que lo tengas lanzamos ansible y ya lo tenemos funcionando.
+Ahora debemos editar el fichero *cipp/ansible/group_vars/all* y adaptando a tus parámetros. Una vez que lo tengas lanzamos ansible y ya lo tenemos funcionando.
 
 
 ```
