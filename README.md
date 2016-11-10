@@ -76,7 +76,41 @@ Para probarlo solo debes clonar el proyecto y ejecutar vagrant up, con esto ya d
 Instalación
 -----------
 
-Todavía está en desarrollo y no se ha preparado la instalación oficial, pero son playbooks de ansible con lo cual es muy muy fácil.
+Para hacer una instalación debes tener una máquina limpia de ubuntu 14.04, al menos 2 Gb de ram y git instalado.
+
+Partimos que no está instalado ansible en la máquina y lo instalamos
+
+```
+$ sudo apt-get update
+$ sudo apt-get install -y software-properties-common
+$ sudo apt-add-repository ppa:ansible/ansible
+$ sudo apt-get update
+$ sudo apt-get install -y ansible
+```
+
+Configuramos ansible para la ejecución en local
+
+```
+echo "localhost ansible_connection=local" | sudo tee -a /etc/ansible/hosts
+```
+
+Nos descargamos el proyecto
+
+```
+$ git clone https://github.com/kamaxeon/cipp.git
+```
+
+Ahora debemos editar el fichero *cipp/ansible/group_vars/all* y adaptando a tu parámetros. Una vez que lo tengas lanzamos ansible y ya lo tenemos funcionando.
+
+
+```
+$ cd cipp/ansible
+$ sudo ansible sudo ansible-playbook playbook-localhost.yml
+```
+
+
+Después de un rato tendríamos ya nuestra máquina funcionando correctamente. Sólo debes recordar que debes configurar como proxy la ip de esta máquina con el puerto 8080, y tendrás en el puerto 80 las estadísticas de navegación.
+
 
 Autores
 -------
